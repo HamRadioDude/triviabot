@@ -211,3 +211,4 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("👋 TriviaBot shutting down.")
+# Thanks AI, couldn't have done it without you. Well, I could have, but it wouldn't look so good and would probably break or something... 
