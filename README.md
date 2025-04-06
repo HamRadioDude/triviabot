@@ -1,15 +1,18 @@
-README - TriviaBot for Meshtastic
-================================
-
-TriviaBot is a lightweight Python bot that sends multiple choice trivia questions over Meshtastic every 5 minutes. 
-Users reply with !answer A/B/C/D, and scores are tracked throughout the day.  A top 5 daily leaderboard is displayed.
-
------------------------------
 Requirements
 -----------------------------
 - Python 3.9+
-- A running Meshtastic daemon (meshtasticd) or device with TCP interface enabled
-- Python packages: meshtastic, requests
+- A Raspberry Pi (tested on Pi 3) with a MeshAdvHat or other Meshtastic-compatible board
+- Meshtastic Python API (meshtastic)
+- Requests library (requests)
+- A running Meshtastic daemon (`meshtasticd`) OR
+  a Meshtastic node connected via serial/USB with proper modifications
+
+Notes:
+- This script is optimized for use with the MeshAdvHat, which runs `meshtasticd` in the background and allows communication over a local TCP socket (127.0.0.1).
+- If you are using a different setup — such as plugging a Meshtastic node directly into the Pi via USB — you will need to:
+   - Change the interface in `triviabot.py` from `TCPInterface` to `SerialInterface`
+   - Point to the correct serial port (e.g. `/dev/ttyUSB0`)
+- TCP interface allows multiple programs (like the web UI and TriviaBot) to share the connection to the device without conflict.
 -----------------------------
 Install Instructions
 -----------------------------
